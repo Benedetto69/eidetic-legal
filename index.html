@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EIDETIC — Privacy Policy</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #000;
+            color: #E8E8E8;
+            line-height: 1.7;
+            padding: 40px 20px;
+            max-width: 720px;
+            margin: 0 auto;
+        }
+        h1 { color: #C9A962; font-size: 28px; margin-bottom: 8px; }
+        h2 { color: #C9A962; font-size: 20px; margin-top: 32px; margin-bottom: 12px; }
+        p { margin-bottom: 16px; color: #ccc; }
+        .date { color: #888; font-size: 14px; margin-bottom: 32px; }
+        ul { margin-left: 20px; margin-bottom: 16px; }
+        li { margin-bottom: 8px; color: #ccc; }
+        strong { color: #E8E8E8; }
+        a { color: #C9A962; }
+        .highlight { color: #F5F0E8; font-weight: 600; }
+    </style>
+</head>
+<body>
+    <h1>EIDETIC — Privacy Policy</h1>
+    <p class="date">Effective date: February 28, 2026</p>
+
+    <p>EIDETIC is built on one principle: <span class="highlight">your data never leaves your device</span>.</p>
+
+    <h2>1. Data Collection</h2>
+    <p><strong>We collect no personal data.</strong> EIDETIC operates entirely on your device. There are no accounts, no cloud servers, no analytics, and no tracking.</p>
+
+    <h2>2. On-Device Processing</h2>
+    <p>All features run locally on your iPhone:</p>
+    <ul>
+        <li><strong>Vault:</strong> Your thoughts are encrypted with AES-256 and stored only on your device.</li>
+        <li><strong>AI Search:</strong> Semantic search uses on-device AI models (llama.cpp). No queries are sent to external servers.</li>
+        <li><strong>Voice Input:</strong> Speech-to-text runs via Whisper on your device. Audio is never recorded to files or transmitted.</li>
+        <li><strong>OCR:</strong> Text recognition from photos uses Apple Vision on-device. Images are not stored or uploaded.</li>
+    </ul>
+
+    <h2>3. Encryption</h2>
+    <p>Your vault is encrypted using <strong>AES-256 via SQLCipher</strong>. The encryption key is generated on your device using a cryptographically secure random number generator and stored in the iOS Keychain. We do not have access to your encryption key. If you lose it, your data cannot be recovered — by design.</p>
+
+    <h2>4. Biometric Authentication</h2>
+    <p>EIDETIC uses Face ID or Touch ID to protect access to your vault. Biometric data is handled entirely by Apple's Secure Enclave and is never accessible to EIDETIC.</p>
+
+    <h2>5. In-App Purchases</h2>
+    <p>EIDETIC offers a one-time lifetime purchase ("Neural Core") processed through Apple's App Store. Purchase validation is handled by RevenueCat, which receives only your anonymous App Store receipt — no personal information. See <a href="https://www.revenuecat.com/privacy" target="_blank">RevenueCat's Privacy Policy</a>.</p>
+
+    <h2>6. AI Model Downloads</h2>
+    <p>After purchasing the Neural Core, AI models are downloaded from public servers (HuggingFace). These downloads are standard HTTPS requests with no user identification. Once downloaded, models run entirely offline.</p>
+
+    <h2>7. Third-Party Services</h2>
+    <p>The only external service EIDETIC communicates with is:</p>
+    <ul>
+        <li><strong>RevenueCat</strong> — for anonymous purchase receipt validation only.</li>
+        <li><strong>HuggingFace CDN</strong> — one-time model downloads only.</li>
+    </ul>
+    <p>No analytics, no crash reporting, no advertising SDKs.</p>
+
+    <h2>8. Children's Privacy</h2>
+    <p>EIDETIC does not knowingly collect any data from children. Since we collect no data from anyone, this applies universally.</p>
+
+    <h2>9. Data Deletion</h2>
+    <p>All your data is on your device. Delete the app, and everything is gone. There is nothing to delete on our servers because we have no servers storing your data.</p>
+
+    <h2>10. Changes to This Policy</h2>
+    <p>If we update this policy, the new version will be available at this URL with an updated effective date.</p>
+
+    <h2>11. Contact</h2>
+    <p>For privacy questions: <a href="mailto:benedetto.riba@gmail.com">benedetto.riba@gmail.com</a></p>
+
+    <p style="margin-top: 48px; color: #555; font-size: 13px;">EIDETIC — Your mind, encrypted. No cloud. No compromise.</p>
+</body>
+</html>
