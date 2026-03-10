@@ -24,58 +24,156 @@
         strong { color: #E8E8E8; }
         a { color: #C9A962; }
         .highlight { color: #F5F0E8; font-weight: 600; }
+        .lang-switch {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+        .lang-switch button {
+            background: transparent;
+            border: 1px solid #333;
+            color: #888;
+            padding: 6px 16px;
+            border-radius: 8px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .lang-switch button.active {
+            border-color: #C9A962;
+            color: #C9A962;
+            background: rgba(201, 169, 98, 0.1);
+        }
+        .lang { display: none; }
+        .lang.active { display: block; }
     </style>
 </head>
 <body>
-    <h1>EIDETIC — Privacy Policy</h1>
-    <p class="date">Effective date: February 28, 2026</p>
 
-    <p>EIDETIC is built on one principle: <span class="highlight">your data never leaves your device</span>.</p>
+    <div class="lang-switch">
+        <button id="btn-en" class="active" onclick="switchLang('en')">English</button>
+        <button id="btn-it" onclick="switchLang('it')">Italiano</button>
+    </div>
 
-    <h2>1. Data Collection</h2>
-    <p><strong>We collect no personal data.</strong> EIDETIC operates entirely on your device. There are no accounts, no cloud servers, no analytics, and no tracking.</p>
+    <!-- ── ENGLISH ──────────────────────────────────────── -->
+    <div id="lang-en" class="lang active">
+        <h1>EIDETIC — Privacy Policy</h1>
+        <p class="date">Effective date: February 28, 2026</p>
 
-    <h2>2. On-Device Processing</h2>
-    <p>All features run locally on your iPhone:</p>
-    <ul>
-        <li><strong>Vault:</strong> Your thoughts are encrypted with AES-256 and stored only on your device.</li>
-        <li><strong>AI Search:</strong> Semantic search uses on-device AI models (llama.cpp). No queries are sent to external servers.</li>
-        <li><strong>Voice Input:</strong> Speech-to-text runs via Whisper on your device. Audio is never recorded to files or transmitted.</li>
-        <li><strong>OCR:</strong> Text recognition from photos uses Apple Vision on-device. Images are not stored or uploaded.</li>
-    </ul>
+        <p>EIDETIC is built on one principle: <span class="highlight">your data never leaves your device</span>.</p>
 
-    <h2>3. Encryption</h2>
-    <p>Your vault is encrypted using <strong>AES-256 via SQLCipher</strong>. The encryption key is generated on your device using a cryptographically secure random number generator and stored in the iOS Keychain. We do not have access to your encryption key. If you lose it, your data cannot be recovered — by design.</p>
+        <h2>1. Data Collection</h2>
+        <p><strong>We collect no personal data.</strong> EIDETIC operates entirely on your device. There are no accounts, no cloud servers, no analytics, and no tracking.</p>
 
-    <h2>4. Biometric Authentication</h2>
-    <p>EIDETIC uses Face ID or Touch ID to protect access to your vault. Biometric data is handled entirely by Apple's Secure Enclave and is never accessible to EIDETIC.</p>
+        <h2>2. On-Device Processing</h2>
+        <p>All features run locally on your iPhone:</p>
+        <ul>
+            <li><strong>Vault:</strong> Your thoughts are encrypted with AES-256 and stored only on your device.</li>
+            <li><strong>AI Search:</strong> Semantic search uses on-device AI models (llama.cpp). No queries are sent to external servers.</li>
+            <li><strong>Voice Input:</strong> Speech-to-text runs via Whisper on your device. Audio is never recorded to files or transmitted.</li>
+            <li><strong>OCR:</strong> Text recognition from photos uses Apple Vision on-device. Images are not stored or uploaded.</li>
+        </ul>
 
-    <h2>5. In-App Purchases</h2>
-    <p>EIDETIC offers a one-time lifetime purchase ("Neural Core") processed through Apple's App Store. Purchase validation is handled by RevenueCat, which receives only your anonymous App Store receipt — no personal information. See <a href="https://www.revenuecat.com/privacy" target="_blank">RevenueCat's Privacy Policy</a>.</p>
+        <h2>3. Encryption</h2>
+        <p>Your vault is encrypted using <strong>AES-256 via SQLCipher</strong>. The encryption key is generated on your device using a cryptographically secure random number generator and stored in the iOS Keychain. We do not have access to your encryption key. If you lose it, your data cannot be recovered — by design.</p>
 
-    <h2>6. AI Model Downloads</h2>
-    <p>After purchasing the Neural Core, AI models are downloaded from public servers (HuggingFace). These downloads are standard HTTPS requests with no user identification. Once downloaded, models run entirely offline.</p>
+        <h2>4. Biometric Authentication</h2>
+        <p>EIDETIC uses Face ID or Touch ID to protect access to your vault. Biometric data is handled entirely by Apple's Secure Enclave and is never accessible to EIDETIC.</p>
 
-    <h2>7. Third-Party Services</h2>
-    <p>The only external service EIDETIC communicates with is:</p>
-    <ul>
-        <li><strong>RevenueCat</strong> — for anonymous purchase receipt validation only.</li>
-        <li><strong>HuggingFace CDN</strong> — one-time model downloads only.</li>
-    </ul>
-    <p>No analytics, no crash reporting, no advertising SDKs.</p>
+        <h2>5. In-App Purchases</h2>
+        <p>EIDETIC offers in-app purchases (Monthly, Annual, and Lifetime) processed through Apple's App Store. Purchase validation is handled by RevenueCat, which receives only your anonymous App Store receipt — no personal information. See <a href="https://www.revenuecat.com/privacy" target="_blank">RevenueCat's Privacy Policy</a>.</p>
 
-    <h2>8. Children's Privacy</h2>
-    <p>EIDETIC does not knowingly collect any data from children. Since we collect no data from anyone, this applies universally.</p>
+        <h2>6. AI Model Downloads</h2>
+        <p>After purchasing the Neural Core, AI models are downloaded from public servers (HuggingFace). These downloads are standard HTTPS requests with no user identification. Once downloaded, models run entirely offline.</p>
 
-    <h2>9. Data Deletion</h2>
-    <p>All your data is on your device. Delete the app, and everything is gone. There is nothing to delete on our servers because we have no servers storing your data.</p>
+        <h2>7. Third-Party Services</h2>
+        <p>The only external services EIDETIC communicates with are:</p>
+        <ul>
+            <li><strong>RevenueCat</strong> — for anonymous purchase receipt validation only.</li>
+            <li><strong>HuggingFace CDN</strong> — one-time model downloads only.</li>
+        </ul>
+        <p>No analytics, no crash reporting, no advertising SDKs.</p>
 
-    <h2>10. Changes to This Policy</h2>
-    <p>If we update this policy, the new version will be available at this URL with an updated effective date.</p>
+        <h2>8. Children's Privacy</h2>
+        <p>EIDETIC does not knowingly collect any data from children. Since we collect no data from anyone, this applies universally.</p>
 
-    <h2>11. Contact</h2>
-    <p>For privacy questions: <a href="mailto:support@benedettoriba.com">support@benedettoriba.com</a></p>
+        <h2>9. Data Deletion</h2>
+        <p>All your data is on your device. Delete the app, and everything is gone. There is nothing to delete on our servers because we have no servers storing your data.</p>
 
-    <p style="margin-top: 48px; color: #555; font-size: 13px;">EIDETIC — Your mind, encrypted. No cloud. No compromise.</p>
+        <h2>10. Changes to This Policy</h2>
+        <p>If we update this policy, the new version will be available at this URL with an updated effective date.</p>
+
+        <h2>11. Contact</h2>
+        <p>For privacy questions: <a href="mailto:support@benedettoriba.com">support@benedettoriba.com</a></p>
+
+        <p style="margin-top: 48px; color: #555; font-size: 13px;">EIDETIC — Your mind, encrypted. No cloud. No compromise.</p>
+    </div>
+
+    <!-- ── ITALIANO ─────────────────────────────────────── -->
+    <div id="lang-it" class="lang">
+        <h1>EIDETIC — Informativa sulla Privacy</h1>
+        <p class="date">Data di entrata in vigore: 28 febbraio 2026</p>
+
+        <p>EIDETIC si fonda su un unico principio: <span class="highlight">i tuoi dati non lasciano mai il tuo dispositivo</span>.</p>
+
+        <h2>1. Raccolta Dati</h2>
+        <p><strong>Non raccogliamo alcun dato personale.</strong> EIDETIC funziona interamente sul tuo dispositivo. Non esistono account, server cloud, analisi statistiche o tracciamento.</p>
+
+        <h2>2. Elaborazione sul Dispositivo</h2>
+        <p>Tutte le funzionalit&agrave; operano localmente sul tuo iPhone:</p>
+        <ul>
+            <li><strong>Caveau:</strong> I tuoi pensieri sono crittografati con AES-256 e conservati esclusivamente sul tuo dispositivo.</li>
+            <li><strong>Ricerca AI:</strong> La ricerca semantica utilizza modelli AI on-device (llama.cpp). Nessuna query viene inviata a server esterni.</li>
+            <li><strong>Input Vocale:</strong> La trascrizione vocale avviene tramite Whisper direttamente sul tuo dispositivo. L'audio non viene mai registrato su file n&eacute; trasmesso.</li>
+            <li><strong>OCR:</strong> Il riconoscimento del testo dalle foto utilizza Apple Vision on-device. Le immagini non vengono conservate n&eacute; caricate.</li>
+        </ul>
+
+        <h2>3. Crittografia</h2>
+        <p>Il tuo caveau &egrave; crittografato con <strong>AES-256 tramite SQLCipher</strong>. La chiave di crittografia viene generata sul tuo dispositivo tramite un generatore di numeri casuali crittograficamente sicuro e conservata nel Keychain iOS. Non abbiamo accesso alla tua chiave di crittografia. Se la perdi, i tuoi dati non possono essere recuperati — per scelta progettuale.</p>
+
+        <h2>4. Autenticazione Biometrica</h2>
+        <p>EIDETIC utilizza Face ID o Touch ID per proteggere l'accesso al tuo caveau. I dati biometrici sono gestiti interamente dal Secure Enclave di Apple e non sono mai accessibili a EIDETIC.</p>
+
+        <h2>5. Acquisti In-App</h2>
+        <p>EIDETIC offre acquisti in-app (Mensile, Annuale e A Vita) elaborati tramite l'App Store di Apple. La validazione degli acquisti &egrave; gestita da RevenueCat, che riceve solo la ricevuta anonima dell'App Store — nessuna informazione personale. Vedi l'<a href="https://www.revenuecat.com/privacy" target="_blank">Informativa Privacy di RevenueCat</a>.</p>
+
+        <h2>6. Download dei Modelli AI</h2>
+        <p>Dopo l'acquisto del Core Neurale, i modelli AI vengono scaricati da server pubblici (HuggingFace). Questi download sono richieste HTTPS standard senza alcuna identificazione dell'utente. Una volta scaricati, i modelli funzionano interamente offline.</p>
+
+        <h2>7. Servizi di Terze Parti</h2>
+        <p>Gli unici servizi esterni con cui EIDETIC comunica sono:</p>
+        <ul>
+            <li><strong>RevenueCat</strong> — esclusivamente per la validazione anonima delle ricevute d'acquisto.</li>
+            <li><strong>HuggingFace CDN</strong> — esclusivamente per il download una tantum dei modelli.</li>
+        </ul>
+        <p>Nessuna analisi statistica, nessun crash reporting, nessun SDK pubblicitario.</p>
+
+        <h2>8. Privacy dei Minori</h2>
+        <p>EIDETIC non raccoglie consapevolmente dati da minori. Poich&eacute; non raccogliamo dati da nessuno, questo si applica universalmente.</p>
+
+        <h2>9. Cancellazione dei Dati</h2>
+        <p>Tutti i tuoi dati sono sul tuo dispositivo. Elimina l'app e tutto scompare. Non c'&egrave; nulla da cancellare sui nostri server perch&eacute; non abbiamo server che conservano i tuoi dati.</p>
+
+        <h2>10. Modifiche a Questa Informativa</h2>
+        <p>Se aggiorniamo questa informativa, la nuova versione sar&agrave; disponibile a questo URL con una data di entrata in vigore aggiornata.</p>
+
+        <h2>11. Contatti</h2>
+        <p>Per domande sulla privacy: <a href="mailto:support@benedettoriba.com">support@benedettoriba.com</a></p>
+
+        <p style="margin-top: 48px; color: #555; font-size: 13px;">EIDETIC — La tua mente, crittografata. Nessun cloud. Nessun compromesso.</p>
+    </div>
+
+    <script>
+        function switchLang(lang) {
+            document.querySelectorAll('.lang').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.lang-switch button').forEach(el => el.classList.remove('active'));
+            document.getElementById('lang-' + lang).classList.add('active');
+            document.getElementById('btn-' + lang).classList.add('active');
+        }
+        // Auto-detect language from browser
+        if (navigator.language && navigator.language.startsWith('it')) {
+            switchLang('it');
+        }
+    </script>
 </body>
 </html>
